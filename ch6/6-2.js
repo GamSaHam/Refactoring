@@ -1,20 +1,22 @@
 // 예제 1
 export function rating(driver) {
-  return moreThanFiveLateDeliveries(driver) ? 2 : 1;
+  return dvr.numberOfLateDeliveries > 5 ? 2 : 1;
 }
 
-function moreThanFiveLateDeliveries(dvr) {
-  return dvr.numberOfLateDeliveries > 5;
-}
+// 너무 불필요하게 Extract 된것을 inline한 예제
+// function moreThanFiveLateDeliveries(dvr) {
+//   return dvr.numberOfLateDeliveries > 5;
+// }
 
 // 예제 2
 function reportLines(customer) {
   const lines = [];
-  gatherCustomerData(lines, customer);
+  lines.push(['name', customer.name]);
+  lines.push(['location', customer.location]);
   return lines;
 }
 
-function gatherCustomerData(out, customer) {
-  out.push(['name', customer.name]);
-  out.push(['location', customer.location]);
-}
+// function gatherCustomerData(out, customer) {
+//   out.push(['name', customer.name]);
+//   out.push(['location', customer.location]);
+// }
