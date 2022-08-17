@@ -6,7 +6,7 @@ class Account {
   }
 
   get interestRate() {
-    return this._type._interestRate;
+    return this._type.interestRate;
   }
 }
 
@@ -15,6 +15,11 @@ class AccountType {
     this._name = nameString;
     this._interestRate = interestRate;
   }
+
+  get interestRate() {
+    return this._interestRate;
+  }
+
 }
 
 
