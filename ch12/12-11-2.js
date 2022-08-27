@@ -1,27 +1,23 @@
-class CatalogItem {
-  constructor(id, title, tags) {
+// 슈퍼클래스 위임으로 바꾸기
+
+
+// 리파지토리 패턴
+class Scroll {
+  constructor(id, dataLastCleaned, catelogItem) {
     this._id = id;
-    this._title = title;
-    this._tags = tags;
+    this._lastCleaned = dataLastCleaned;
   }
 
   get id() {
-    return this._id;
+    return this.id;
   }
 
   get title() {
-    return this._title;
+    return this._catalogItem.title;
   }
 
-  hasTag(arg) {
-    return this._tags.includes(arg);
-  }
-}
-
-class Scroll extends CatalogItem {
-  constructor(id, title, tags, dataLastCleaned) {
-    super(id, title, tags);
-    this._lastCleaned = dataLastCleaned;
+  hasTag(aString) {
+    return this._catalogItem.tags.hasTag(aString);
   }
 
   needsCleaning(targetDate) {
@@ -34,3 +30,13 @@ class Scroll extends CatalogItem {
     return this._lastCleaned.until(targetDate, ChronoUnit.DAYS);
   }
 }
+
+const scrolls = aDocument.map(
+    (record) =>
+        new Scroll(
+            record.id,
+            LocalDate.parse(record.lastCleaned),
+            record.catalogData.id,
+            catalog
+        )
+);

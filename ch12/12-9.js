@@ -1,3 +1,8 @@
+// 계층 합치기
 class Employee {}
 
-class Salesperson extends Employee {}
+
+/////// Before
+// class Employee {}
+//
+// class Salesperson extends Employee {}
