@@ -1,6 +1,5 @@
 // 슈퍼클래스 위임으로 바꾸기
 
-
 // 리파지토리 패턴
 class Scroll {
   constructor(id, dataLastCleaned, catelogItem) {
